@@ -28,7 +28,7 @@
     sessions: 129,
     heures:   738,
     salles:   6,
-    linkedin: 964,
+    linkedin: 968,
     maj:      null
   });
 
