@@ -123,6 +123,7 @@
         try {
           v.pause();
           v.currentTime = 0;
+          v.muted = true;
         } catch (_) { /* ignore */ }
         var p;
         try {
@@ -131,7 +132,9 @@
           p = null;
         }
         if (p && typeof p.catch === 'function') {
-          p.catch(function () { /* lecture refusée : le garde-fou 138 s prendra le relais */ });
+          p.catch(function (err) {
+            console.warn("Lecture refusée par le navigateur :", err);/* lecture refusée : le garde-fou 138 s prendra le relais */
+          });
         }
         /* Garde-fou : la page « visite » dure 2 min 18 s. */
         endTimer = setTimeout(function () {
